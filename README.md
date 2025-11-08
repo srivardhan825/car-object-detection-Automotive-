@@ -16,8 +16,3 @@ The Vehicle Speed Detection for Automotive project leverages computer vision and
 - TensorFlow / PyTorch  
 - NumPy / Pandas  
 - Matplotlib  
-
-## ⚙️ How to Run
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/srivardhan825/vehicle-speed-detection-automotive.git
