@@ -1,105 +1,115 @@
-🚗 Overview – Vehicle Speed Detection for Automotive
+🚗 Vehicle Speed Detection using Computer Vision & Deep Learning
 
-This technology has significant applications in traffic monitoring, law enforcement, smart cities, and autonomous driving systems.
+This project detects vehicles in a video stream and calculates their speed using Computer Vision, OpenCV, and Deep Learning models such as Faster R-CNN / YOLO.
+It is designed for real-time traffic monitoring, smart transportation systems, and road safety applications.
 
-🎯 Objective
+🔍 Features
 
-The main goal of this project is to:
+Detects vehicles (car, bike, bus, truck)
 
-Detect vehicles (cars, bikes, buses, trucks) from real-time video or pre-recorded footage.
+Tracks each vehicle across video frames
 
-Track their movement across frames.
+Calculates speed using distance covered per frame
 
-Estimate their speed in km/h using the displacement between consecutive frames.
+Works with CCTV footage or live camera
 
-Display results visually (bounding boxes + speed labels) for easy interpretation.
+Supports deep-learning detectors (YOLO / Faster R-CNN)
 
-⚙️ Technical Approach
-🧠 1. Deep Learning Model – Faster R-CNN
+Real-time visualization of:
 
-The system uses Faster R-CNN (Region-based Convolutional Neural Network), pre-trained on the COCO dataset.
+Bounding boxes
 
-Faster R-CNN can detect multiple classes of objects — here we focus on vehicle categories such as cars, buses, trucks, and motorcycles.
+Vehicle ID
 
-📸 2. Computer Vision (OpenCV)
+Estimated speed
 
-The video stream is read frame-by-frame using OpenCV.
+🧠 Models Used
 
-Each frame is converted into a PyTorch tensor for inference by the neural network.
+You can use any of the following:
 
-The bounding boxes of detected vehicles are extracted for tracking.
+Faster R-CNN (PyTorch)
 
-🧮 3. Speed Estimation
+YOLOv8 (Ultralytics)
 
-Vehicle centroids are computed for each bounding box.
+Both models offer high accuracy for object detection.
 
-The displacement of each vehicle’s centroid between consecutive frames is used to estimate its speed.
+📦 Project Requirements
+Software Requirements
 
-Using:
+Python 3.8 – 3.11
 
-Speed (m/s)
-=
-Displacement (pixels)
-×
-Scale Factor (meters/pixel)
-×
-FPS
-Speed (m/s)=Displacement (pixels)×Scale Factor (meters/pixel)×FPS
+OpenCV
 
-The speed is then converted into km/h.
+PyTorch
 
-💻 4. Visualization
+Torchvision
 
-Each detected vehicle is shown with:
+NumPy
 
-A bounding box
+Matplotlib
 
-A speed label (e.g., Speed: 45.6 km/h)
+Ultralytics (optional, for YOLO)
 
-The processed video is displayed in real-time.
+Supervision (optional, for tracking)
 
-🧩 Tools and Technologies
-Category	Tools Used
-Programming Language	Python
-Frameworks	PyTorch, Torchvision
-Libraries	OpenCV, NumPy, Matplotlib
-Model	Faster R-CNN (ResNet-50 backbone)
-Environment	Jupyter Notebook / VS Code
-Dataset (optional)	Any traffic or surveillance video
-⚡ Key Features
+Python Libraries
+opencv-python
+torch
+torchvision
+numpy
+matplotlib
+pillow
+scipy
+tqdm
+ultralytics
+supervision
 
-✅ Real-time vehicle detection
-✅ Speed estimation with calibration
-✅ Support for different vehicle types
-✅ Works with video files or live webcam
-✅ Modular and easy to integrate with other systems
+NVIDIA GPU (GTX 1050 Ti or higher)
 
-🚀 Applications
+▶️ How to Run
+# Install required libraries
+pip install -r requirements.txt
 
-Traffic Law Enforcement: Detect overspeeding vehicles automatically.
+# Run the project
+python speed_detection.py
 
-Smart Traffic Systems: Real-time monitoring and data collection for analysis.
+📌 Methodology
 
-Autonomous Vehicles: Vehicle detection and tracking for safe navigation.
+Object detection model identifies vehicles per frame
 
-Research & Education: Use in computer vision, AI, and deep learning projects.
+Vehicle IDs tracked using centroid tracking
 
-📈 Future Enhancements
+Distance moved between frames is calculated
 
-Integrate license plate recognition (ANPR).
+Speed is derived using:
 
-Use multi-object tracking (DeepSORT) for accurate vehicle tracking.
+speed = distance / time
 
-Add calibration techniques for precise real-world speed measurement.
 
-Deploy system on edge devices (Raspberry Pi, Jetson Nano) for real-time use.
+Final video is rendered with bounding boxes + speed labels
 
-🔍 Project Summary
+🎯 Output
 
-Vehicle Speed Detection is a computer vision and deep learning–based system designed to automatically detect, track, and measure the speed of vehicles from video footage.
-The system leverages Faster R-CNN (a state-of-the-art object detection model) to identify vehicles in real-time, and OpenCV to process each video frame and estimate the movement of vehicles between frames.
+The output video will contain:
 
-🧾 Summary
+Vehicle bounding boxes
 
-This project demonstrates how deep learning and computer vision can be combined to create a practical, real-world system capable of analyzing traffic and detecting vehicle speeds automatically. It serves as a foundation for intelligent transportation systems and autonomous driving applications.
+Tracking ID
 
+Calculated speed (km/h or mph)
+
+📚 Use Cases
+
+Traffic monitoring
+
+Smart city applications
+
+Accident analysis
+
+Highway speed enforcement
+
+Transport research
+
+🏁 Conclusion
+
+This project successfully detects and tracks vehicles in video streams and calculates their speed using deep learning. It can be integrated with real-time CCTV systems for traffic management and road safety improvement.
